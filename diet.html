@@ -97,3 +97,96 @@
             <tr><td class="meal-time">Breakfast</td><td>2 Besan Chillas (small) + Mint Chutney</td></tr>
             <tr><td class="meal-time">Lunch</td><td>1 Multigrain Roti + 1 bowl Arhar Dal + Salad</td></tr>
             <tr><td class="meal-time">Snack</td><td>1 cup Green Tea + Roasted Makhana</td></tr>
+            <tr><td class="meal-time">Dinner</td><td>Paneer Bhurji (100g) + 1 Toast + Veggies</td></tr>
+        </table>
+    </div>
+
+    <div id="tuesday" class="content-card">
+        <h2>Tuesday Plan</h2>
+        <table>
+            <tr><td class="meal-time">Breakfast</td><td>Oats Porridge (Water/Skim milk) + 1/2 Apple</td></tr>
+            <tr><td class="meal-time">Lunch</td><td>1 Multigrain Roti + 1 bowl Chole + Salad</td></tr>
+            <tr><td class="meal-time">Snack</td><td>1 cup Coffee + Roasted Chana</td></tr>
+            <tr><td class="meal-time">Dinner</td><td>Soya Chunk Pulao (50g soya) + Raita</td></tr>
+        </table>
+    </div>
+
+    <div id="wednesday" class="content-card">
+        <h2>Wednesday Plan</h2>
+        <table>
+            <tr><td class="meal-time">Breakfast</td><td>Paneer Sandwich (2 brown bread, raw paneer)</td></tr>
+            <tr><td class="meal-time">Lunch</td><td>1 Multigrain Roti + 1 bowl Moong Dal + Sabzi</td></tr>
+            <tr><td class="meal-time">Snack</td><td>1 cup Green Tea + 1 Seasonal Fruit</td></tr>
+            <tr><td class="meal-time">Dinner</td><td>Dal Khichdi (More dal, less rice) + Curd</td></tr>
+        </table>
+    </div>
+
+    <div id="thursday" class="content-card">
+        <h2>Thursday Plan</h2>
+        <table>
+            <tr><td class="meal-time">Breakfast</td><td>2 Moong Dal Chillas + Mint Chutney</td></tr>
+            <tr><td class="meal-time">Lunch</td><td>1 Multigrain Roti + 1 bowl Rajma + Salad</td></tr>
+            <tr><td class="meal-time">Snack</td><td>1 cup Coffee + Roasted Makhana</td></tr>
+            <tr><td class="meal-time">Dinner</td><td>Tofu Stir Fry with Capsicum & Onion</td></tr>
+        </table>
+    </div>
+
+    <div id="friday" class="content-card">
+        <h2>Friday Plan</h2>
+        <table>
+            <tr><td class="meal-time">Breakfast</td><td>Vegetable Poha (lots of peas/beans)</td></tr>
+            <tr><td class="meal-time">Lunch</td><td>1 Multigrain Roti + 1 bowl Masoor Dal + Sabzi</td></tr>
+            <tr><td class="meal-time">Snack</td><td>1 cup Green Tea + Roasted Chana</td></tr>
+            <tr><td class="meal-time">Dinner</td><td>Homemade Paneer Tikka + Big Salad</td></tr>
+        </table>
+    </div>
+
+    <div id="weekend" class="content-card">
+        <h2>Weekend (Sat/Sun)</h2>
+        <p><i>Keep it light, but enjoy a small treat on Sunday lunch.</i></p>
+        <table>
+            <tr><td class="meal-time">Sat Lunch</td><td>Mix Dal + 1 Roti + Cucumber Raita</td></tr>
+            <tr><td class="meal-time">Sat Dinner</td><td>Besan Cheela (2) + Curd (Light dinner)</td></tr>
+            <tr><td class="meal-time">Sun Lunch</td><td>Treat Meal (e.g., Homemade Pasta/Rice)</td></tr>
+            <tr><td class="meal-time">Sun Dinner</td><td>Soup + Salad (Detox reset)</td></tr>
+        </table>
+    </div>
+
+    <div id="grocery" class="content-card">
+        <h2>🛒 Weekly Shopping List</h2>
+        <div class="grocery-grid">
+            <label class="grocery-item"><input type="checkbox"> Paneer / Tofu (500g)</label>
+            <label class="grocery-item"><input type="checkbox"> Multigrain Atta</label>
+            <label class="grocery-item"><input type="checkbox"> Moong Dal</label>
+            <label class="grocery-item"><input type="checkbox"> Soya Chunks</label>
+            <label class="grocery-item"><input type="checkbox"> Oats</label>
+            <label class="grocery-item"><input type="checkbox"> Makhana / Foxnuts</label>
+            <label class="grocery-item"><input type="checkbox"> Green Tea</label>
+            <label class="grocery-item"><input type="checkbox"> Cucumber (1kg)</label>
+            <label class="grocery-item"><input type="checkbox"> Spinach / Palak</label>
+            <label class="grocery-item"><input type="checkbox"> Apples / Papaya</label>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function openTab(tabName) {
+        // Hide all contents
+        var contents = document.getElementsByClassName("content-card");
+        for (var i = 0; i < contents.length; i++) {
+            contents[i].classList.remove("active");
+        }
+        // Remove active class from buttons
+        var buttons = document.getElementsByClassName("tab-btn");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+        // Show current tab
+        document.getElementById(tabName).classList.add("active");
+        event.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
