@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wellness Dashboard</title>
+    <style>
+        :root {
+            --primary: #2E7D32; /* Green */
+            --light: #E8F5E9;
+            --accent: #FF6F00; /* Orange for emphasis */
+            --text: #333;
+            --bg: #f4f7f6;
+        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        
+        /* Header */
+        header { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; margin-bottom: 20px; }
+        h1 { margin: 0; color: var(--primary); }
+        .subtitle { color: #666; font-size: 0.9rem; }
+
+        /* Stats Grid */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        .stat-card { background: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .stat-val { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+        .stat-label { font-size: 0.85rem; color: #888; }
+
+        /* Tabs */
+        .tabs { display: flex; overflow-x: auto; gap: 10px; margin-bottom: 20px; padding-bottom: 5px; }
+        .tab-btn { padding: 10px 20px; border: none; background: #ddd; border-radius: 20px; cursor: pointer; white-space: nowrap; transition: 0.3s; }
+        .tab-btn.active { background: var(--primary); color: white; }
+
+        /* Content Area */
+        .content-card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: none; animation: fadeIn 0.3s; }
+        .content-card.active { display: block; }
+        
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th { text-align: left; color: #666; font-size: 0.8rem; padding-bottom: 10px; border-bottom: 2px solid var(--light); }
+        td { padding: 15px 5px; border-bottom: 1px solid #eee; }
+        .meal-time { font-weight: bold; color: var(--accent); width: 80px; }
+
+        /* Grocery Checklist */
+        .grocery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+        .grocery-item { background: var(--light); padding: 10px; border-radius: 5px; display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .grocery-item input { accent-color: var(--primary); transform: scale(1.2); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🥗 My Wellness Dashboard</h1>
+        <p class="subtitle">Target: 1,350 Calories | Protein: 65g | Lifestyle: Sedentary</p>
+    </header>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-val">5'3"</div>
+            <div class="stat-label">Height</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-val">82 kg</div>
+            <div class="stat-label">Current Weight</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-val" id="bmi-display">32.0</div>
+            <div class="stat-label">BMI (Obese Class I)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-val">3 L</div>
+            <div class="stat-label">Water Goal</div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab('monday')">Monday</button>
+        <button class="tab-btn" onclick="openTab('tuesday')">Tuesday</button>
+        <button class="tab-btn" onclick="openTab('wednesday')">Wednesday</button>
+        <button class="tab-btn" onclick="openTab('thursday')">Thursday</button>
+        <button class="tab-btn" onclick="openTab('friday')">Friday</button>
+        <button class="tab-btn" onclick="openTab('weekend')">Weekend</button>
+        <button class="tab-btn" onclick="openTab('grocery')">🛒 Grocery List</button>
+    </div>
+
+    <div id="monday" class="content-card active">
+        <h2>Monday Plan</h2>
+        <table>
+            <tr><td class="meal-time">Breakfast</td><td>2 Besan Chillas (small) + Mint Chutney</td></tr>
+            <tr><td class="meal-time">Lunch</td><td>1 Multigrain Roti + 1 bowl Arhar Dal + Salad</td></tr>
+            <tr><td class="meal-time">Snack</td><td>1 cup Green Tea + Roasted Makhana</td></tr>
+            <tr><td class="meal-time">Dinner</td><td>Paneer Bhurji (100g) + 1 Toast + Veggies</td></tr>
+        </table>
+    </div>
+
+    <div id="tuesday" class="content-card">
+        <h2>Tuesday Plan</h2>
+        <table>
+            <tr><td class="meal-time">Breakfast</td><td>Oats Porridge (Water/Skim milk) + 1/2 Apple</td></tr>
+            <tr><td class="meal-time">Lunch</td><td>1 Multigrain Roti + 1 bowl Chole + Salad</td></tr>
+            <tr><td class="meal-time">Snack</td><td>1 cup Coffee + Roasted Chana</td></tr>
+            <tr><td class="meal-time">Dinner</td><td>Soya Chunk Pulao (50g soya) + Raita</td></tr>
+        </table>
+    </div>
+
+    <div id="wednesday" class="content-card">
+        <h2>Wednesday Plan</h2>
+        <table>
+            <tr><td class="meal-time">Breakfast</td><td>Paneer Sandwich (2 brown bread, raw paneer)</td></tr>
+            <tr><td class="meal-time">Lunch</td><td>1 Multigrain Roti + 1 bowl Moong Dal + Sabzi</td></tr>
+            <tr><td class="meal-time">Snack</td><td>1 cup Green Tea + 1 Seasonal Fruit</td></tr>
+            <tr><td class="meal-time">Dinner</td><td>Dal Khichdi (More dal, less rice) + Curd</td></tr>
+        </table>
+    </div>
+
+    <div id="thursday" class="content-card">
+        <h2>Thursday Plan</h2>
+        <table>
+            <tr><td class="meal-time">Breakfast</td><td>2 Moong Dal Chillas + Mint Chutney</td></tr>
+            <tr><td class="meal-time">Lunch</td><td>1 Multigrain Roti + 1 bowl Rajma + Salad</td></tr>
+            <tr><td class="meal-time">Snack</td><td>1 cup Coffee + Roasted Makhana</td></tr>
+            <tr><td class="meal-time">Dinner</td><td>Tofu Stir Fry with Capsicum & Onion</td></tr>
+        </table>
+    </div>
+
+    <div id="friday" class="content-card">
+        <h2>Friday Plan</h2>
+        <table>
+            <tr><td class="meal-time">Breakfast</td><td>Vegetable Poha (lots of peas/beans)</td></tr>
+            <tr><td class="meal-time">Lunch</td><td>1 Multigrain Roti + 1 bowl Masoor Dal + Sabzi</td></tr>
+            <tr><td class="meal-time">Snack</td><td>1 cup Green Tea + Roasted Chana</td></tr>
+            <tr><td class="meal-time">Dinner</td><td>Homemade Paneer Tikka + Big Salad</td></tr>
+        </table>
+    </div>
+
+    <div id="weekend" class="content-card">
+        <h2>Weekend (Sat/Sun)</h2>
+        <p><i>Keep it light, but enjoy a small treat on Sunday lunch.</i></p>
+        <table>
+            <tr><td class="meal-time">Sat Lunch</td><td>Mix Dal + 1 Roti + Cucumber Raita</td></tr>
+            <tr><td class="meal-time">Sat Dinner</td><td>Besan Cheela (2) + Curd (Light dinner)</td></tr>
+            <tr><td class="meal-time">Sun Lunch</td><td>Treat Meal (e.g., Homemade Pasta/Rice)</td></tr>
+            <tr><td class="meal-time">Sun Dinner</td><td>Soup + Salad (Detox reset)</td></tr>
+        </table>
+    </div>
+
+    <div id="grocery" class="content-card">
+        <h2>🛒 Weekly Shopping List</h2>
+        <div class="grocery-grid">
+            <label class="grocery-item"><input type="checkbox"> Paneer / Tofu (500g)</label>
+            <label class="grocery-item"><input type="checkbox"> Multigrain Atta</label>
+            <label class="grocery-item"><input type="checkbox"> Moong Dal</label>
+            <label class="grocery-item"><input type="checkbox"> Soya Chunks</label>
+            <label class="grocery-item"><input type="checkbox"> Oats</label>
+            <label class="grocery-item"><input type="checkbox"> Makhana / Foxnuts</label>
+            <label class="grocery-item"><input type="checkbox"> Green Tea</label>
+            <label class="grocery-item"><input type="checkbox"> Cucumber (1kg)</label>
+            <label class="grocery-item"><input type="checkbox"> Spinach / Palak</label>
+            <label class="grocery-item"><input type="checkbox"> Apples / Papaya</label>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function openTab(tabName) {
+        // Hide all contents
+        var contents = document.getElementsByClassName("content-card");
+        for (var i = 0; i < contents.length; i++) {
+            contents[i].classList.remove("active");
+        }
+        // Remove active class from buttons
+        var buttons = document.getElementsByClassName("tab-btn");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+        // Show current tab
+        document.getElementById(tabName).classList.add("active");
+        event.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
